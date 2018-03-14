@@ -17,7 +17,7 @@
 //   three: ' the',
 //   four: ' property',
 //   five: ' values.'
-// } 
+// }
 
 // for(var key in values) {
 //   console.log(values[key])
@@ -31,19 +31,20 @@
 //   console.log(key)
 // }
 
-
-
 ////////// PROBLEM 1 //////////
 
 /*
   Inside the function showValues, write a for in loop that concatenates each of the property values and returns the concatenated string.
 */
 
-function showValues( obj ) {
+function showValues(obj) {
   //Code Here
+  let result = "";
+  for (let key in obj) {
+    result += obj[key];
+  }
+  return result;
 }
-
-
 
 ////////// PROBLEM 2 //////////
 
@@ -52,10 +53,14 @@ function showValues( obj ) {
   Write a for in loop that loops over the object and changes any value that is great than 10 to 0. 
   Return the updated object.
 */
+let greaterThan10 = obj => {
+  for (let key in obj) {
+    obj[key] > 10 ? (obj[key] = 0) : null;
+  }
+  return obj;
+};
 
 //Code Here
-
-
 
 ////////// PROBLEM 3 //////////
 
@@ -64,10 +69,13 @@ function showValues( obj ) {
   Write a for in loop that loops over the object and changes every value to be itself multipled by 2.
   Return the updated object.
 */
-
+let double = obj => {
+  for (let key in obj) {
+    obj[key] *= 2;
+  }
+  return obj;
+};
 //Code Here
-
-
 
 ////////// PROBLEM 4 //////////
 
@@ -78,10 +86,16 @@ function showValues( obj ) {
   If the property name starts with an 'sh', concatenate the value to the string variable.
   By the end of the for in loop, you should have a sentence, return that sentence.
 */
-
+let secrets = obj => {
+  let str = "";
+  for (let key in obj) {
+    if (key.substr(0, 2) === "sh") {
+      str += obj[key];
+    }
+  }
+  return str;
+};
 //Code Here
-
-
 
 /* 
   Sometimes it's needed to delete object properties. 
@@ -101,18 +115,18 @@ function showValues( obj ) {
 
 // console.log(deleteAllThethings)
 
-
-
 ////////// PROBLEM 5 //////////
 
 /*
   Write a function called removePassword that takes in an object.
   Delete the property password and return the object.
 */
+let removePassword = obj => {
+  delete obj.password;
+  return obj;
+};
 
 //Code Here
-
-
 
 ////////// PROBLEM 6 //////////
 
@@ -122,16 +136,16 @@ var deleteTheBigNumbers = {
   second: 20,
   third: 110,
   fourth: 200
-}
+};
 // Do not edit the code above.
 
 /*
   Write a for in loop that deletes every property from the object deleteTheBigNumbers whose value is greater than 100.
 */
-
+for (let key in deleteTheBigNumbers) {
+  deleteTheBigNumbers[key] > 100 ? delete deleteTheBigNumbers[key] : null;
+}
 //Code Here
-
-
 
 ////////// PROBLEM 7 //////////
 
@@ -141,10 +155,13 @@ var deleteTheBigNumbers = {
   If any property name starts with k, delete that property.
   Return the updated object.
 */
-
+let startsWithK = obj => {
+  for (let key in obj) {
+    key[0] === "k" ? delete obj[key] : null;
+  }
+  return obj;
+};
 //Code Here
-
-
 
 ////////// PROBLEM 8 //////////
 
@@ -156,7 +173,10 @@ var deleteTheBigNumbers = {
 
   (hint: the method includes() may be of use...)
 */
-
+let hiddenTreasure = obj => {
+  for (let key in obj) {
+    !obj[key].includes("treasure") ? delete obj[key] : null;
+  }
+  return obj;
+};
 //Code Here
-
-
