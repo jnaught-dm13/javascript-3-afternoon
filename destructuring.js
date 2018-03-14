@@ -10,20 +10,18 @@
 
 // Do not edit the code below.
 var carDetails = {
-  color: 'red',
-  make: 'toyota',
-  model: 'tacoma',
+  color: "red",
+  make: "toyota",
+  model: "tacoma",
   year: 1994
-}
+};
 // Do not edit the code above.
 
 /*
   Use object destructuring to save the property values from the object carDetails into new variables. 
 */
-
+var { color, make, model, year } = carDetails;
 //Code Here
-
-
 
 ////////// PROBLEM 2 //////////
 
@@ -33,15 +31,14 @@ var carDetails = {
   The property names are firstName, lastName, and title.
 */
 
-function greeting( obj ) {
+greeting = obj => {
+  let { title, firstName, lastName } = obj;
   //Code Here
-  
+
   // Do not edit the code below.
-  return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
+  return "Hello, " + title + " " + firstName + " " + lastName + "!";
   // Do not edit the code above.
-}
-
-
+};
 
 ////////// PROBLEM 3 //////////
 
@@ -53,9 +50,11 @@ function greeting( obj ) {
   Sum up the values and return the total number.
 */
 
+totalPopulation = obj => {
+  let { utah, california, texas, arizona } = obj;
+  return utah + california + texas + arizona;
+};
 //Code Here
-
-
 
 ////////// PROBLEM 4 //////////
 
@@ -66,10 +65,13 @@ function greeting( obj ) {
   Use object destructuring to save the property values to new variables. 
   Push these new variables to an array and return the array. 
 */
-
+ingredients = obj => {
+  var arr = [];
+  var { carb, fat, protein } = obj;
+  arr.push(carb, fat, protein);
+  return arr;
+};
 //Code Here
-
-
 
 ////////// PROBLEM 5 //////////
 
@@ -84,10 +86,16 @@ function greeting( obj ) {
   The object properties will be named first, second, and third and their values will be numbers.
   Find the smallest number of the three and return that number.
 */
-
+largeNumbers = ({ first, second, third }) => {
+  if (first < second && first < third) {
+    return first;
+  } else if (second < first && second < third) {
+    return second;
+  } else {
+    return third;
+  }
+};
 //Code Here
-
-
 
 ////////// PROBLEM 6 //////////
 
@@ -96,7 +104,13 @@ function greeting( obj ) {
   The object properties will be named a, b, and c and their values will be arrays of numbers.
   Find the longest array and return that array.
 */
-
+numberGroups = ({ a, b, c }) => {
+  if (a.length > b.length && a.length > c.length) {
+    return a;
+  } else if (b.length > a.length && b.length > c.length) {
+    return b;
+  } else {
+    return c;
+  }
+};
 //Code Here
-
-
